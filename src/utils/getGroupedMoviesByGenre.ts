@@ -5,6 +5,7 @@ export const getGroupedMoviesByGenre = (movies: Movie[]) => {
   let genres: string[] = [];
   let groupedMovies: GroupedMovies = {};
 
+  // Get all genres from movies
   movies.forEach((movie) => {
     movie.genres.forEach((genre) => {
       if (!genres.includes(genre)) {
@@ -13,6 +14,7 @@ export const getGroupedMoviesByGenre = (movies: Movie[]) => {
     });
   });
 
+  // Group movies by genre
   genres.forEach((genre) => {
     const moviesByGenre = movies.filter((movie) =>
       movie.genres.includes(genre)

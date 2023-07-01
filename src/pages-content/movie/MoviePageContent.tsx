@@ -43,7 +43,7 @@ export const MoviePageContent = () => {
           <div className={styles.titleContainer}>
             <h2>{movie.title}</h2>
 
-            <div>{movie.imdb_rating} / 10</div>
+            <div>IMDB Rating: {movie.imdb_rating} / 10</div>
           </div>
 
           <p>

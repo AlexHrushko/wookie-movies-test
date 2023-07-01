@@ -1,7 +1,5 @@
 import { Movie } from "@/models";
 import styles from "./MoviesList.module.css";
-import Link from "next/link";
-import { useMoviesStore } from "@/store";
 import { MoviesListItem } from "../movies-list-item";
 
 interface MoviesListProps {
