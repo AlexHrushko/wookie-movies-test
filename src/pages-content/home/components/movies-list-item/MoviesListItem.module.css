@@ -1,7 +1,29 @@
 .root {
   display: flex;
-  width: 200px;
-  height: 100px;
-  border: 1px solid black;
-  margin: 0 10px;
+  width: 300px;
+  height: 160px;
+  position: relative;
+  transition: transform 0.15s cubic-bezier(0, 0.2, 0.5, 3) 0s;
+}
+
+.root:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.root:active {
+  cursor: pointer;
+  transform: scale(1.09);
+}
+
+.title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: calc(100% - 20px);
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
+  color: white;
+  padding: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
 }

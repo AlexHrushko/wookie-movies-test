@@ -7,8 +7,9 @@ import axios from "axios";
 import { GroupedMovies, Movie } from "@/models";
 import { GenresList } from "./components";
 import { getGroupedMoviesByGenre } from "@/utils/getGroupedMoviesByGenre";
+import { API_ENDPOINT } from "@/constants";
 
-const MOVIES_API_URL = "https://dev.flixforge.com/p/test_movies.pl";
+const MOVIES_API_URL = `${API_ENDPOINT}/p/test_movies.pl`;
 
 export const HomePageContent = () => {
   const [movies, setMovies] = useState<GroupedMovies>({});

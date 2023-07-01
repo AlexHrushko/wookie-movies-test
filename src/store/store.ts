@@ -1,5 +1,6 @@
 import { Movie } from "@/models";
 import { create } from "zustand";
+import { persist, createJSONStorage } from "zustand/middleware";
 
 export interface MoviesStore {
   search: string;
@@ -8,10 +9,19 @@ export interface MoviesStore {
   setMoviewForDetailsView: (movie: Movie | null) => void;
 }
 
-export const useMoviesStore = create<MoviesStore>((set) => ({
-  search: "",
-  setSearch: (value: string) => set(() => ({ search: value })),
-  movieForDetailsView: null,
-  setMoviewForDetailsView: (movie: Movie | null) =>
-    set(() => ({ movieForDetailsView: movie })),
-}));
+// Using Zustand to create a store. The store is persisted in sessionStorage.
+export const useMoviesStore = create(
+  persist<MoviesStore>(
+    (set) => ({
+      search: "",
+      setSearch: (value: string) => set(() => ({ search: value })),
+      movieForDetailsView: null,
+      setMoviewForDetailsView: (movie: Movie | null) =>
+        set(() => ({ movieForDetailsView: movie })),
+    }),
+    {
+      name: "wookie-movies-store",
+      storage: createJSONStorage(() => sessionStorage),
+    }
+  )
+);

@@ -1,4 +1,39 @@
-.main {
+.root {
   padding: 2rem;
-  padding-top: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: start;
+}
+
+.titleContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2rem;
+}
+
+.infoContainer p {
+  margin-top: 1rem;
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .imageContainer {
+    justify-content: center;
+  }
 }
