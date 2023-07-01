@@ -1,7 +1,9 @@
 .root {
   display: flex;
+  align-items: center;
   width: 100%;
   max-width: 100%;
   overflow-x: auto;
   gap: 20px;
+  height: 200px;
 }

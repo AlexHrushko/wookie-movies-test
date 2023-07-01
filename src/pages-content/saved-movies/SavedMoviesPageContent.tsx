@@ -10,9 +10,17 @@ export const SavedMoviesPageContent = () => {
     movies: state.savedMovies,
   }));
 
-  return (
-    <main className={styles.root}>
-      {movies && <GenresList groupedMovies={getGroupedMoviesByGenre(movies)} />}
-    </main>
-  );
+  const renderContent = () => {
+    if (Object.keys(movies).length === 0) {
+      return (
+        <div className={styles.empyListContainer}>
+          You don&apos;t have saved movies
+        </div>
+      );
+    }
+
+    return <GenresList groupedMovies={getGroupedMoviesByGenre(movies)} />;
+  };
+
+  return <main className={styles.root}>{renderContent()}</main>;
 };

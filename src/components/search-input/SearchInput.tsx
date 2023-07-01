@@ -5,6 +5,7 @@ import styles from "./SearchInput.module.css";
 import { useMoviesStore } from "@/store";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 
 export const SearchInput = () => {
   const router = useRouter();
@@ -33,7 +34,7 @@ export const SearchInput = () => {
 
   return (
     <div className={styles.root}>
-      &#128270;
+      <MagnifyingGlassIcon className={styles.searchIcon} />
       <input
         type="text"
         placeholder="Search..."

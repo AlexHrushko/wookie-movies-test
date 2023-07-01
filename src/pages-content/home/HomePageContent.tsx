@@ -43,11 +43,17 @@ export const HomePageContent = () => {
       });
   }, [search]);
 
-  return (
-    <main className={styles.root}>
-      {isLoading && "Loading..."}
+  const renderContent = () => {
+    if (isLoading) {
+      return <div className={styles.empyListContainer}>Loading...</div>;
+    }
 
-      {movies && <GenresList groupedMovies={movies} />}
-    </main>
-  );
+    if (Object.keys(movies).length === 0) {
+      return <div className={styles.empyListContainer}>Cant find movies</div>;
+    }
+
+    return <GenresList groupedMovies={movies} />;
+  };
+
+  return <main className={styles.root}>{renderContent()}</main>;
 };

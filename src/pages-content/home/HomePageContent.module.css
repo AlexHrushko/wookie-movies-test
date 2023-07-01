@@ -2,3 +2,11 @@
   padding: 2rem;
   padding-top: 0;
 }
+
+.empyListContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  width: 100%;
+}
