@@ -6,6 +6,7 @@ import { useMoviesStore } from "@/store";
 import Image from "next/image";
 import { API_ENDPOINT } from "@/constants";
 import moment from "moment";
+import { Bookmark } from "@/components";
 
 export const MoviePageContent = () => {
   const { movie: slug } = useParams();
@@ -32,6 +33,10 @@ export const MoviePageContent = () => {
             src={`${API_ENDPOINT}/${movie.poster}`}
             alt="poster"
           />
+
+          <div className={styles.bookmark}>
+            <Bookmark movie={movie} />
+          </div>
         </div>
 
         <div className={styles.infoContainer}>

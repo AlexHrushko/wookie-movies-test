@@ -27,3 +27,9 @@
   font-size: 1.1rem;
   font-weight: 600;
 }
+
+.bookmark {
+  position: absolute;
+  top: 0;
+  right: 0;
+}

@@ -10,6 +10,13 @@
 .imageContainer {
   display: flex;
   justify-content: start;
+  position: relative;
+}
+
+.bookmark {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .titleContainer {

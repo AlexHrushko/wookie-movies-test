@@ -6,7 +6,7 @@ import { useMoviesStore } from "@/store";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-export const SearhcInput = () => {
+export const SearchInput = () => {
   const router = useRouter();
   const { search, setSearch } = useMoviesStore((state) => ({
     search: state.search,

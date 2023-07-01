@@ -4,3 +4,17 @@
   padding: 0 2rem;
   border-bottom: 2px solid black;
 }
+
+.searchAndLinksContainer {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.headerLink {
+  cursor: pointer;
+}
+
+.headerLink:hover {
+  text-decoration: underline;
+}

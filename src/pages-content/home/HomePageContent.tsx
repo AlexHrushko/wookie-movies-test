@@ -5,9 +5,9 @@ import styles from "./HomePageContent.module.css";
 import { useMoviesStore } from "@/store";
 import axios from "axios";
 import { GroupedMovies, Movie } from "@/models";
-import { GenresList } from "./components";
 import { getGroupedMoviesByGenre } from "@/utils/getGroupedMoviesByGenre";
 import { API_ENDPOINT } from "@/constants";
+import { GenresList } from "@/components";
 
 const MOVIES_API_URL = `${API_ENDPOINT}/p/test_movies.pl`;
 
