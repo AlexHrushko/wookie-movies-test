@@ -1,5 +1,8 @@
 import { Movie } from "@/models";
 import styles from "./MoviesList.module.css";
+import Link from "next/link";
+import { useMoviesStore } from "@/store";
+import { MoviesListItem } from "../movies-list-item";
 
 interface MoviesListProps {
   movies: Movie[];
@@ -7,9 +10,9 @@ interface MoviesListProps {
 
 export const MoviesList = ({ movies }: MoviesListProps) => {
   return (
-    <div>
+    <div className={styles.root}>
       {movies.map((movie) => (
-        <p key={movie.id}>{movie.title}</p>
+        <MoviesListItem key={movie.id} movie={movie} />
       ))}
     </div>
   );

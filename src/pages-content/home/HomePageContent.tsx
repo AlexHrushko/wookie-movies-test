@@ -4,27 +4,26 @@ import { useEffect, useState } from "react";
 import styles from "./HomePageContent.module.css";
 import { useMoviesStore } from "@/store";
 import axios from "axios";
-import { Movie } from "@/models";
-import { useGroupedMoviesByGenre } from "@/hooks";
+import { GroupedMovies, Movie } from "@/models";
 import { GenresList } from "./components";
+import { getGroupedMoviesByGenre } from "@/utils/getGroupedMoviesByGenre";
 
 const MOVIES_API_URL = "https://dev.flixforge.com/p/test_movies.pl";
 
 export const HomePageContent = () => {
-  const [movies, setMovies] = useState<Movie[]>([]);
+  const [movies, setMovies] = useState<GroupedMovies>({});
   const [isLoading, setIsLoading] = useState(false);
   const { search } = useMoviesStore((state) => ({
     search: state.search,
   }));
-  const { groupedMovies } = useGroupedMoviesByGenre(movies);
 
   // Doing a request to the API for getting movies.
-  // In task description i didn't finc information about using additianal libraries for making requests. So i used axios and useEffect but there is will be good to use for exapme react-query.
+  // In task description i didn't find information about using additianal libraries for making requests. So i used axios and useEffect but there is will be good to use for exapmle react-query.
   useEffect(() => {
     setIsLoading(true);
     axios
       .get(
-        search.trim.length > 0
+        search.trim().length > 0
           ? `${MOVIES_API_URL}?q=${search}`
           : MOVIES_API_URL,
         {
@@ -34,7 +33,7 @@ export const HomePageContent = () => {
         }
       )
       .then((response) => {
-        setMovies(response.data.movies as Movie[]);
+        setMovies(getGroupedMoviesByGenre(response.data.movies as Movie[]));
         setIsLoading(false);
       })
       .catch((error) => {
@@ -47,7 +46,7 @@ export const HomePageContent = () => {
     <main className={styles.root}>
       {isLoading && "Loading..."}
 
-      {groupedMovies && <GenresList groupedMovies={groupedMovies} />}
+      {movies && <GenresList groupedMovies={movies} />}
     </main>
   );
 };

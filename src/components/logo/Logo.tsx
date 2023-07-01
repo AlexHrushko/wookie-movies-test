@@ -1,11 +1,13 @@
+import Link from "next/link";
+
 export const Logo = () => {
   return (
-    <div>
+    <Link href="/">
       <h1>
         Wookie
         <br />
         Movies
       </h1>
-    </div>
+    </Link>
   );
 };
